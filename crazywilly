@@ -1,0 +1,5 @@
+# Create a new user account
+New-ADUser -Name "CrazyWilly" -SamAccountName "CrazyWilly" -UserPrincipalName "CrazyWilly@corp.m1.com" -Path "CN=Users,DC=corp,DC=m1,DC=com" -AccountPassword (ConvertTo-SecureString "StrongPassword!" -AsPlainText -Force) -Enabled $true
+
+# Enable the user account (if it wasn't enabled during creation)
+Enable-ADAccount -Identity "CrazyWilly"
